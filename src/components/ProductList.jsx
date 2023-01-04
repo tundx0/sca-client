@@ -44,11 +44,11 @@ const ProductList = () => {
         {products.map((product) => (
           <div
             key={product.sku}
-            className="product delete-checkbox border-2 border-gray-400 rounded-lg p-4 flex flex-col justify-center items-center"
+            className="product border-2 border-gray-400 rounded-lg p-4 flex flex-col justify-center items-center"
           >
             <input
               type="checkbox"
-              className=""
+              className="delete-checkbox"
               checked={product.checked}
               onChange={() =>
                 setProducts((prevProducts) =>
