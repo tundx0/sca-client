@@ -1,6 +1,6 @@
 import ProductList from "./components/ProductList";
 import ProductForm from "./components/addProduct";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
         <Routes>
           <Route path="/products" element={<ProductList />} />
           <Route path="/add-product" element={<ProductForm />} />
+          <Route path="/" element={<Navigate to="/products" replace />} />
         </Routes>
       </BrowserRouter>
     </div>
