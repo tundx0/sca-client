@@ -27,7 +27,13 @@ const ProductList = () => {
       // Fetch the updated list of products from the API
       fetch(`${process.env.REACT_APP_API_URL}/api/v1/`)
         .then((response) => response.json())
-        .then((data) => setProducts(data));
+        .then((data) => {
+          setProducts(data);
+          const elements = document.querySelectorAll(".delete-checkbox");
+          elements.forEach((element) =>
+            element.classList.remove("delete-checkbox")
+          );
+        });
     });
   };
 
@@ -43,7 +49,7 @@ const ProductList = () => {
             <input
               type="checkbox"
               className=""
-              checked={product.checked}
+              checked=""
               onChange={() =>
                 setProducts((prevProducts) =>
                   prevProducts.map((p) =>
