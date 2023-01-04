@@ -27,13 +27,7 @@ const ProductList = () => {
       // Fetch the updated list of products from the API
       fetch(`${process.env.REACT_APP_API_URL}/api/v1/`)
         .then((response) => response.json())
-        .then((data) => {
-          setProducts(data);
-          const elements = document.querySelectorAll(".delete-checkbox");
-          elements.forEach((element) =>
-            element.classList.remove("delete-checkbox")
-          );
-        });
+        .then((data) => setProducts(data));
     });
   };
 
