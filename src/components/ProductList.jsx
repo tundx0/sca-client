@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./NavBar";
-
+// const dotenv = require("dotenv");
 // export const CheckedItemsContext = createContext();
 
 const ProductList = () => {
@@ -8,26 +8,24 @@ const ProductList = () => {
 
   useEffect(() => {
     // Fetch the list of products from the API
-    fetch("http://localhost/api/v1/")
+    fetch(`${process.env.REACT_APP_API_URL}/api/v1/`)
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
 
-  // Function to delete the checked products
   const handleDelete = () => {
     // Get the list of checked product SKUs
     const checkedProductSkus = products
       .filter((product) => product.checked)
       .map((product) => product.sku);
 
-    // Send a DELETE request to the API to delete the checked products
-    fetch("http://localhost/api/v1/product", {
+    fetch(`${process.env.REACT_APP_API_URL}/api/v1/product`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ skus: checkedProductSkus }),
     }).then(() => {
       // Fetch the updated list of products from the API
-      fetch("http://localhost/api/v1/")
+      fetch(`${process.env.REACT_APP_API_URL}/api/v1/`)
         .then((response) => response.json())
         .then((data) => setProducts(data));
     });
