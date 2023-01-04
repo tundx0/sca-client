@@ -49,7 +49,7 @@ const ProductList = () => {
             <input
               type="checkbox"
               className=""
-              checked=""
+              checked={product.checked}
               onChange={() =>
                 setProducts((prevProducts) =>
                   prevProducts.map((p) =>
