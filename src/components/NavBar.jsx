@@ -30,13 +30,13 @@ const Navbar = (props) => {
               onClick={props.handleSubmit}
               className="bg-blue-500 text-white font-bold font-sans py-2 px-4 rounded-full hover:bg-blue-600"
             >
-              SAVE
+              Save
             </button>
             <Link
               to="/products"
               className="bg-red-500 text-white font-bold font-sans py-2 px-4 rounded-full hover:bg-red-600"
             >
-              CANCEL
+              Cancel
             </Link>
           </>
         )}
